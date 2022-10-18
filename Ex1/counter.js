@@ -35,7 +35,6 @@ function maxValue()
     let fourth_number = parseFloat(document.getElementById("fourth_number").value);
     if (isNaN(fourth_number)) fourth_number = 0;
     let maxNumber = (Math.max(first_number, second_number, third_number, fourth_number))
-    console.log(maxNumber)
     document.getElementById("maxValue").value = maxNumber;
 }
 
