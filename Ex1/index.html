@@ -4,12 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
   <script src="counter.js">
   </script>
 </head>
 
 <body>
-  <div>
+  <div class="main">
       <label for="number1" class="form-label">Number 1</label>
       <input type="text" id="first_number" class="number" placeholder="Type Here" onkeyup="calculate()"><br>
 
@@ -25,15 +26,15 @@
       <div id="results"></div>
 
       <label for="total" class="form-label">Sum</label>
-      <input type="text" id="total" name="total" value="0" disabled><br>
+      <input class="number" type="text" id="total" name="total" value="0" disabled><br>
       
       <label for="average" class="form-label">Average</label>
-      <input type="text" id="average" name="average" value="0" disabled><br>
+      <input class="number" type="text" id="average" name="average" value="0" disabled><br>
 
       <label for="maxValue" class="form-label">maxValue</label>
-      <input type="text" id="maxValue" name="maxValue" value="0" disabled><br>
+      <input class="number" type="text" id="maxValue" name="maxValue" value="0" disabled><br>
 
       <label for="minValue" class="form-label">minValue</label>
-      <input type="text" id="minValue" name="maxValue" value="0" disabled><br>
+      <input class="number" type="text" id="minValue" name="maxValue" value="0" disabled><br>
     </div>
 </body>
