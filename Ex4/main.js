@@ -9,7 +9,6 @@ const months = ["January", "February", "March", "April", "May", "June",
 const notes = JSON.parse(localStorage.getItem("notes") || []);
 
 
-
 addBox.addEventListener("click", () => {
     popupBox.classList.add("show");
 });
@@ -21,13 +20,29 @@ closeIcon.addEventListener("click", () => {
 
 
 closeIcon.addEventListener("click", () => {
+    titleTag.value = "";
+    descTag.value = "";
     popupBox.classList.remove("show");
 });
 
-function showNotes() 
-{
-    notes.forEach((note) => {
-        let liTag = '<li class="note"><div class="details"><p>This is a Title</p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae pariatur, minima officia autemnihil quam velit illum harum maxime quas ducimus omnis excepturi eveniet ipsum. Quas vero cumlaboriosam sapiente!</span></div ><div class="bottom-content"><span>November 19,2022</span><div class="settings"><i class="uil uil-ellipsis-h"></i><ul class="menu"><li><i class="uil uil-pen"></i>Edit</li><li><i class="uil uil-trash"></i>Delete</li></ul></div></div ></li >';
+function showNotes() {
+    document.querySelectorAll(".note").forEach(note => note.remove());
+    notes.forEach((note, index) => {
+
+        let liTag = `<li class="note">
+                        <div class="details">
+                        <p>${note.title}</p>
+                            <span>${note.description}</span></div >
+                            <div class="bottom-content">
+                            <span>${note.date}</span>
+                            <div class="settings">
+                            <i onclick=(showMenu(this)) class="uil uil-ellipsis-h"></i>
+                            <ul class="menu">
+                            <li><i class="uil uil-pen"></i>Edit</li>
+                            <li onclick="deleteNote(${index})"><i class="uil uil-trash"></i>Delete</li></ul>
+                            </div>
+                            </div>
+                            </lid>`;
         addBox.insertAdjacentHTML("afterend", liTag);
     });
 
@@ -35,6 +50,25 @@ function showNotes()
 
 showNotes();
 
+function showMenu(elem) {
+    elem.parentElement.classList.add("show");
+    document.addEventListener("click", e =>
+    {
+        if(e.target.tagName != "I" || e.target != elem)
+        {
+            elem.parentElement.classList.remove("show");
+        }
+    })
+}
+
+
+function deleteNote(noteId)
+{
+    notes.splice(noteId,1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    showNotes();
+
+}
 addBtn.addEventListener("click", e => {
     e.preventDefault();
     let noteTitle = titleTag.value;
@@ -47,11 +81,12 @@ addBtn.addEventListener("click", e => {
         let noteInfo = {
             title: noteTitle,
             description: noteDescription,
-            date: month, day, year
+            date: `${month}, ${day}, ${year}`
         }
 
         notes.push(noteInfo);
         localStorage.setItem("notes", JSON.stringify(notes));
         closeIcon.click();
+        showNotes();
     }
 });
