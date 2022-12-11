@@ -8,7 +8,7 @@ const addBtn = popupBox.querySelector("button");
 
 const months = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"];
-const notes = JSON.parse(localStorage.getItem("notes") || []);
+const notes = [];
 let isUpdated = false, updateId;
 
 addBox.addEventListener("click", () => {
