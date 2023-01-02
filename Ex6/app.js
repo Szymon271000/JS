@@ -3,6 +3,8 @@ const ctx = canvas.getContext("2d"); // CTX MEANS CONTEXT
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
 let particleArray;
+let animating = false;
+let startButton = document.getElementById("startButton");
 
 // receive mouse position
 let mouse = {
@@ -122,8 +124,8 @@ function animate(){
     connect();
 }
 
-init();
-animate();
+
+
 
 
 // RESIZE SETTING - empty and refill particle array every time window changes size + change canvas size
@@ -143,3 +145,10 @@ window.addEventListener('mouseout',
         console.log('mouseout');
 	}
 )
+
+function startAnimation()
+{
+    init();
+    animate();
+    startButton.disabled = true;
+}
