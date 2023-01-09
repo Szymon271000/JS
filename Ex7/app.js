@@ -77,24 +77,6 @@ let getWeather = () => {
                 }
                 showCities();
             }
-
-            // result.innerHTML = 
-            // `<h2>${city.name}</h2>
-            // <h4 class="weather">${city.weather}</h4>
-            // <h4 class="weather">${city.description}</h4>
-            // <img src="https://openweathermap.org/img/w/${city.icon}.png">
-            // <h1>${city.mainTemp} &#176;C</h1>
-            // <div class="temp-container">
-            //     <div>
-            //         <h4 class="title">min</h4>
-            //         <h4 class="temp">${city.minTemp}</h4>
-            //     </div>
-            //     <div>
-            //     <h4 class="title">max</h4>
-            //     <h4 class="temp">${city.maxTemp}</h4>
-            //     </div>
-            // </div>`;
-            // console.log(cities);
         })
         .catch(() => {
             result.innerHTML = '<h3 class="msg">City not found</h3>'
