@@ -95,13 +95,11 @@ addBtn.addEventListener("click", e => {
     let noteDescription = descTag.value;
     if (noteTitle || noteDescription) {
         let dateObj = new Date();
-        let month = months[dateObj.getMonth()];
-        let day = dateObj.getDay();
-        let year = dateObj.getFullYear();
+        const day = dateObj.toLocaleDateString();
         let noteInfo = {
             title: noteTitle,
             description: noteDescription,
-            date: `${month}, ${day}, ${year}`
+            date: `${day}`
         }
 
         if(!isUpdated)
