@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="all">
-        <button class="w button">w</button>
-        <button class="a button">a</button>
-        <button class="s button">s</button>
-        <button class="d button">d</button>
+    <div class="buttons">
+        <button class="record-button btn">Record</button>
     </div>
+    <div class="piano">
+        <div data-note="boom" class="key white"></div>
+        <div data-note="clap" class="key black"></div>
+        <div data-note="kick" class="key white"></div>
+        <div data-note="openhat" class="key black"></div>
+        <div data-note="ride" class="key white"></div>
+        <div data-note="tink" class="key black"></div>
+        <div data-note="tom" class="key white"></div>
+    </div>
+    <audio id="boom" src="./sounds/boom.wav"></audio>
+    <audio id="clap" src="./sounds/clap.wav"></audio>
+    <audio id="kick" src="./sounds/kick.wav"></audio>
+    <audio id="openhat" src="./sounds/openhat.wav"></audio>
+    <audio id="ride" src="./sounds/ride.wav"></audio>
+    <audio id="tink" src="./sounds/tink.wav"></audio>
+    <audio id="tom" src="./sounds/tom.wav"></audio>
     <script src="drumkit.js"></script>
 </body> 
 </html>
